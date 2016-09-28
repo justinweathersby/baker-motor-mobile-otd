@@ -9,6 +9,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'partials/header' %>
+    <div class="container" style="margin-top:70px;">
+        <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: "alert alert-info") %>
+        <% end %>
+
+        <%= yield %>
+    </div>
   </body>
 </html>
