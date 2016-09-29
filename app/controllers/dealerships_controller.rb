@@ -69,6 +69,6 @@ class DealershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dealership_params
-      params.fetch(:dealership, {})
+      params.fetch(:dealership, {}).permit(:name, :phone, :primary_color, :new_cars_url, :used_cars_url, :service_url, :sales_email, :service_email, :street, :city, :state, :country, :zipcode, :logo, :background_image)
     end
 end
