@@ -5,6 +5,30 @@ Rails.application.routes.draw do
                      controllers: {
                                     registrations: "user/registrations"
                                   }
+
+  #===============Api Routes================
+  require 'api_constraints'
+
+   namespace :api, defaults: { format: :json } do
+       # scope per version of api
+       scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+
+         resources :sessions, :only      => [:create, :destroy]
+         match '/login'                  => 'sessions#create', :via => [:options, :post]
+         post '/logout/:user_id'         => 'sessions#destroy'
+
+         match '/users/:id'              => 'users#update', :via => [:options, :put, :post]
+        #  get '/matches'                  => 'matches#show'
+
+         resources :users, :only         => [:show, :create, :update]
+
+        #  resources :messages
+
+
+     end
+   end
+   #==========================================
+
   resources :users, only: [:index, :show, :destroy]
   # devise_for :users
 
