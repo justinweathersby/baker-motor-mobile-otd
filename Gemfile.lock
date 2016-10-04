@@ -47,6 +47,7 @@ GEM
       sass (>= 3.4.19)
     builder (3.2.2)
     byebug (9.0.5)
+    cancancan (1.15.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -189,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap (~> 4.0.0.alpha4)
   byebug
+  cancancan (~> 1.15)
   coffee-rails (~> 4.2)
   devise
   font-awesome-rails
