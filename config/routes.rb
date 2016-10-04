@@ -5,7 +5,7 @@ Rails.application.routes.draw do
                      controllers: {
                                     registrations: "user/registrations"
                                   }
-
+  resources :users, only: [:index, :show, :destroy]
   # devise_for :users
 
   resources :dealerships

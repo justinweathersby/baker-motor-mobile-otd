@@ -21,10 +21,8 @@
         <td><%= dealership.name %></td>
         <td>
           <%= link_to 'Show', dealership, :class=>"btn btn-primary" if can? :read, dealership %>
-
-            <%= link_to 'Edit', edit_dealership_path(dealership), :class=>"btn btn-secondary" if can? :update, dealership %>
-            <%= link_to 'Destroy', dealership, :class=>"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } if can? :manage, dealership %>
-
+          <%= link_to 'Edit', edit_dealership_path(dealership), :class=>"btn btn-secondary" if can? :update, dealership %>
+          <%= link_to 'Destroy', dealership, :class=>"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } if can? :manage, dealership %>
         </td>
       </tr>
     <% end %>
