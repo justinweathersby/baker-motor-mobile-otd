@@ -10,6 +10,7 @@ class User < ApplicationRecord
   after_create :assign_default_role
   after_create :generate_auth_token
 
+  belongs_to :dealership
 
   def generate_auth_token
     loop do
