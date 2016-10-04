@@ -7,9 +7,9 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
-    elsif user.has_role? :moderator
-      can :update, Dealership if user.has_role?(:moderator, Dealership)
     else
+      # can :update, Dealership if user.has_role?(:moderator, Dealership)
+      can :update, Dealership, :id => Dealership.with_role(:moderator, user).pluck(:id)
       can :read, Dealership
     end
     #
