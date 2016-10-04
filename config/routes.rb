@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         #  get '/matches'                  => 'matches#show'
 
          resources :users, :only         => [:show, :create, :update]
+         resources :dealerships, :only   => [:index, :show]
 
         #  resources :messages
 
