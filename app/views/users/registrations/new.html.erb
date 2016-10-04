@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Sign up</h2>
+  <h2 class="text-lg-center">Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -19,38 +19,39 @@
     </div>
 
     <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <label for="exampleSelect1" class="col-sm-2 col-form-label">Dealership</label>
       <div class="col-sm-10">
-        <%= f.password_field :name, :id=> "inputPassword", :class=> "form-control", autocomplete: "off" %>
+        <!-- <select class="form-control" id="exampleSelect1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select> -->
+        <%= select_tag :dealership_id, options_for_select(Dealership.all.collect{ |u| [u.name, u.id] }), class: "form-control" %>
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="inputPasswordConf" class="col-sm-2 col-form-label">Password</label>
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
       <div class="col-sm-10">
-        <%= f.password_field :password_confirmation, :id=> "inputPasswordConf", autocomplete: "off" %>
+        <%= f.password_field :password, :id=> "inputPassword", :class=> "form-control", autocomplete: "off" %>
       </div>
     </div>
 
-
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+    <div class="form-group row">
+      <label for="inputPasswordConf" class="col-sm-2 col-form-label">Password Confirmation</label>
+      <div class="col-sm-10">
+        <%= f.password_field :password_confirmation, :id=> "inputPasswordConf", :class => "form-control",  autocomplete: "off" %>
+      </div>
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
+    <div class="actions text-lg-center">
+      <%= f.submit "Sign up", :class=>"btn btn-primary btn-block" %>
     </div>
   <% end %>
 
-  <%= render "admin_users/shared/links" %>
+  <div class="text-lg-center">
+    <%= render "users/shared/links" %>
+  </div>
 </div>
