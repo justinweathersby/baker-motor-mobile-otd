@@ -1,1 +1,1 @@
-json.(@user, :id, :email, :created_at)
+json.(@user, :id, :email, :dealership_id, :created_at)

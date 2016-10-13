@@ -1,6 +1,6 @@
 class Api::V1::DealershipsController < Api::ApiController
   load_and_authorize_resource
-  before_action :authenticate_with_token!
+  # before_action :authenticate_with_token!
 
   def index
     @dealerships = Dealership.all
