@@ -5,9 +5,6 @@ Rails.application.routes.draw do
                      controllers: {
                                     registrations: "user/registrations"
                                   }
-  devise_scope :user do
-    match '/users/sign_out' => 'user/sessions#destroy', :as => :destroy_user_session, via: [:get, :delete]
-  end
 
   #===============Api Routes================
   require 'api_constraints'
