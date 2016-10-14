@@ -1,13 +1,13 @@
 <h1 class="text-xs-center">Add Dealership</h1>
 
 <div class="container">
-  <%= form_for(dealership) do |f| %>
-    <% if dealership.errors.any? %>
+  <%= form_for(@dealership) do |f| %>
+    <% if @dealership.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(dealership.errors.count, "error") %> prohibited this dealership from being saved:</h2>
+        <h2><%= pluralize(@dealership.errors.count, "error") %> prohibited this dealership from being saved:</h2>
 
         <ul>
-        <% dealership.errors.full_messages.each do |message| %>
+        <% @dealership.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
