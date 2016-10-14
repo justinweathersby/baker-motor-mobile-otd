@@ -5,7 +5,7 @@ class Api::V1::UsersController < Api::ApiController
   def create
     @user = User.new(sign_up_params)
     if @user.valid?
-      
+
         @user.save
         render json: {user: @user}, status: 200
 
@@ -40,11 +40,11 @@ class Api::V1::UsersController < Api::ApiController
   private
 
   def sign_up_params
-    params[:user].permit(:name, :email, :password, :password_confirmation, :dealership_id)
+    params[:user].permit(:name, :email, :password, :password_confirmation, :dealership_id, :device_token, :device_type)
     # params.permit(:first_name,:last_name,:company_name,:organization_name ,:officer_name,:email, :password, :password_confirmation)
   end
 
   def update_params
-    params.permit(:id, :name, :password)
+    params.permit(:id, :name, :password, :device_token, :device_type)
   end
 end
