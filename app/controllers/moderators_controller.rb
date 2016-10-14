@@ -1,5 +1,6 @@
 class ModeratorsController < ApplicationController
   before_action :authenticate_user!
+  authorize_resource :class => false
 
   def new
   end

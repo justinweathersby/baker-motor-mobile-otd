@@ -3,9 +3,8 @@
     <%= render 'partials/admin_dashboard' %>
   <% elsif current_user.has_role? :moderator, :any %>
     <%= render 'partials/moderator_dashboard' %>
-  <% else %>
-    <%= render 'partials/customer_dashboard' %>
   <% end %>
 <% else %>
-  <%= render 'partials/index' %>
+  
+  <% controller.redirect_to new_user_session_url %>
 <% end %>
