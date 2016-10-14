@@ -22,3 +22,6 @@
 
 # Ignore paperclip local uploads
 /public/system/
+
+# Local dev variables
+/config/local_env.yml
