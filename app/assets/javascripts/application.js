@@ -15,9 +15,3 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
-
-window.setTimeout(function () {
-     $(".alert-info").slideUp(500, function () {
-          $(".alert-info").hide();
-      });
- }, 5000);
