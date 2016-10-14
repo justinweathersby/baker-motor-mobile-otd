@@ -6,7 +6,7 @@ Rails.application.routes.draw do
                                     registrations: "user/registrations"
                                   }
   devise_scope :user do
-    get '/users/sign_out' => 'user/sessions#destroy'
+    match '/users/sign_out' => 'user/sessions#destroy', :as => :destroy_user_session, via: [:get, :delete]
   end
 
   #===============Api Routes================
