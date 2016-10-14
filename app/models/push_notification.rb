@@ -15,7 +15,7 @@ private
 
     params = {
       "tokens" => self.tokens,
-      "profile" => "justin_dev",
+      "profile" => "justin_production",
       "notification":{
         "message": self.message,
         "android":{
