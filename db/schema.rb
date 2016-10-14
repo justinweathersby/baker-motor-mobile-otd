@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004085359) do
+ActiveRecord::Schema.define(version: 20161014031041) do
 
   create_table "dealerships", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20161004085359) do
     t.datetime "background_image_updated_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "push_notifications", force: :cascade do |t|
+    t.string   "message"
+    t.string   "tokens"
+    t.string   "sent_to"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_push_notifications_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
