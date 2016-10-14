@@ -7,8 +7,6 @@ Rails.application.routes.draw do
                                   }
 
 
-  get 'users/sign_out' => "devise/sessions#destroy", :via => [:get, :delete]
-
   #===============Api Routes================
   require 'api_constraints'
 
