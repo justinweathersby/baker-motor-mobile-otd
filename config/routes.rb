@@ -5,6 +5,9 @@ Rails.application.routes.draw do
                      controllers: {
                                     registrations: "user/registrations"
                                   }
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   #===============Api Routes================
   require 'api_constraints'
@@ -30,7 +33,7 @@ Rails.application.routes.draw do
    end
    #==========================================
 
-  # resources :users, only: [:index, :show, :destroy]
+  resources :users, only: [:index, :show, :destroy]
   # devise_for :users
 
   resources :dealerships
