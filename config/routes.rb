@@ -31,7 +31,7 @@ Rails.application.routes.draw do
    end
    #==========================================
 
-  resources :users, only: [:index, :show, :destroy]
+  # resources :users, only: [:index, :show, :destroy]
   # devise_for :users
 
   resources :dealerships
