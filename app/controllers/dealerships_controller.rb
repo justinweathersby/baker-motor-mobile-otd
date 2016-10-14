@@ -43,7 +43,7 @@ class DealershipsController < ApplicationController
   def update
     respond_to do |format|
       if @dealership.update(dealership_params)
-        format.html { redirect_to dealerships_url, notice: 'Dealership was successfully updated.' }
+        format.html { redirect_to dealerships_url, notice: 'Your Dealership was successfully updated.' }
         format.json { render :show, status: :ok, location: @dealership }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class DealershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dealership_params
-      params.fetch(:dealership, {}).permit(:name, :phone, :primary_color, :new_cars_url, :used_cars_url, :service_url, :sales_email, :service_email, :street, :city, :state, :country, :zipcode, :logo, :background_image)
+      params.fetch(:dealership, {}).permit(:name, :phone, :primary_color, :new_cars_url, :used_cars_url, :service_url, :specials_url, :sales_email, :service_email, :street, :city, :state, :country, :zipcode, :logo, :background_image)
     end
 end
