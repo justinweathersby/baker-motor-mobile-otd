@@ -31,7 +31,7 @@
           <td class="text-lg-right">
             <!-- <%= link_to 'Show', dealership, :class=>"btn btn-outline-primary" if can? :read, dealership %> -->
             <%= link_to 'Edit', edit_dealership_path(dealership), :class=>"btn btn-outline-warning" if can? :update, dealership %>
-            <%= link_to 'Destroy', dealership, :class=>"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } if can? :manage, dealership %>
+            <%= link_to 'Remove', dealership, :class=>"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } if can? :manage, dealership %>
           </td>
         </tr>
       <% end %>

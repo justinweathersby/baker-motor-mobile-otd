@@ -32,6 +32,7 @@ Rails.application.routes.draw do
    #==========================================
 
   resources :users, only: [:index, :show, :destroy]
+  resources :moderators, :controller => 'moderators'
   # devise_for :users
 
   resources :dealerships
