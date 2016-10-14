@@ -12,6 +12,7 @@ class PushNotificationsController < ApplicationController
 
   def new
     @push_notification = PushNotification.new
+    @customers = User.where.not('device_token' => nil)
   end
 
   def edit
@@ -38,7 +39,7 @@ class PushNotificationsController < ApplicationController
   end
 
   private
-  
+
 
     # Use callbacks to share common setup or constraints between actions.
     def set_push_notification
@@ -47,6 +48,6 @@ class PushNotificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def push_notification_params
-      params.fetch(:push_notification, {}).permit(:message, :tokens, :sent_to, :user_id)
+      params.fetch(:push_notification, {}).permit(:message, :sent_to, :user_id, tokens:[])
     end
 end

@@ -5,12 +5,17 @@ class Api::V1::SessionsController < Api::ApiController
 	def create
 		user_email = request.headers['X-API-EMAIL'].presence
 		user_password = request.headers['X-API-PASS'].presence
+		user_device_token = request.headers['X-API-DEVICE-TOKEN'].presence
+		user_device_type = request.headers['X-API-DEVICE-TYPE'].presence
+
 
 		user = user_email.present? && User.find_by_email(user_email)
 		if user
 			if user.valid_password?(user_password)
 				sign_in user, store: false
 				user.generate_auth_token
+				user.device_token = user_device_token
+				user.device_type = user_device_type
 				user.save
 
 				render json: {user: user}, :status => :created

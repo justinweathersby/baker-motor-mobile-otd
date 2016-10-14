@@ -5,10 +5,16 @@ class PushNotification < ApplicationRecord
   validates :message, presence: true
   validates :tokens, presence: true
 
+  # attribute :tokens, :string, array: true
+  serialize :tokens, Array
+
 private
   def upload_notification_to_ionic
+    puts self.tokens.to_json
+
+
     params = {
-      "tokens" => [self.tokens],
+      "tokens" => self.tokens,
       "profile" => "justin_dev",
       "notification":{
         "message": self.message,
