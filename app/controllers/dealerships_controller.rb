@@ -29,7 +29,7 @@ class DealershipsController < ApplicationController
 
     respond_to do |format|
       if @dealership.save
-        format.html { redirect_to @dealership, notice: 'Dealership was successfully created.' }
+        format.html { redirect_to dealerships_url, notice: 'Dealership was successfully created.' }
         format.json { render :show, status: :created, location: @dealership }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class DealershipsController < ApplicationController
   def update
     respond_to do |format|
       if @dealership.update(dealership_params)
-        format.html { redirect_to @dealership, notice: 'Dealership was successfully updated.' }
+        format.html { redirect_to dealerships_url, notice: 'Dealership was successfully updated.' }
         format.json { render :show, status: :ok, location: @dealership }
       else
         format.html { render :edit }
