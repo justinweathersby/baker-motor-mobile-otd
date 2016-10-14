@@ -1,4 +1,41 @@
-<h2>Log in</h2>
+<!-- LOGIN FORM -->
+<div class="text-sm-center" style="padding:50px 0">
+	<div class="logo" style="color:#474444">Dealer Login</div>
+	<!-- Main Form -->
+	<div class="login-form-1">
+		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<label for="email" class="sr-only">Username</label>
+						<%= f.email_field :email, class: "form-control", placeholder: "username"%>
+					</div>
+					<div class="form-group">
+						<label for="password" class="sr-only">Password</label>
+						<%= f.password_field :password, class: "form-control", placeholder: "password", autocomplete: "off" %>
+					</div>
+					<label class="custom-control custom-checkbox">
+						<%= f.check_box :remember_me, class: "custom-control-input" %>
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Remember me</span>
+					</label>
+				</div>
+				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+				<!-- <%= f.submit class: "login-button" do %>
+				<i class="fa fa-chevron-right"></i>
+				<% end %> -->
+			</div>
+			<div class="etc-login-form">
+				<p>forgot your password? <a href="#">click here</a></p>
+				<p>new user? <a href="#">create new account</a></p>
+			</div>
+		<% end %>
+	</div>
+	<!-- end:Main Form -->
+</div>
+
+<!-- <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -23,4 +60,4 @@
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "users/shared/links" %> -->
