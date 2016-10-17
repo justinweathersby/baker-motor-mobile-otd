@@ -31,7 +31,7 @@ private
     https = Net::HTTP.new(uri.host,uri.port)
     https.use_ssl = true
     req = Net::HTTP::Post.new(uri.path)
-    req['Authorization'] = ENV.fetch('IONIC_API_TOKEN')
+    req['Authorization'] = ENV['IONIC_API_TOKEN']
     req.body = params.to_json
     res = https.request(req)
     puts res.body
