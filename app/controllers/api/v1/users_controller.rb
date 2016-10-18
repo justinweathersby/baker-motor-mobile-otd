@@ -28,7 +28,7 @@ class Api::V1::UsersController < Api::ApiController
   end
 
   def reset_password
-    @user = User.find_by_email(params[:user][:email])
+    @user = User.find_by_email(params[:email])
     if @user.present?
       @user.send_reset_password_instructions
       render json: { "result" => "Email with reset instructions has been sent"}, status: :ok
