@@ -18,6 +18,7 @@ Rails.application.routes.draw do
          match '/login'                  => 'sessions#create', :via => [:options, :post]
          post '/logout/:user_id'         => 'sessions#destroy'
 
+         match '/reset_password'         => 'users#reset_password', :via => [:post]
          match '/users/:id'              => 'users#update', :via => [:options, :put, :post]
         #  get '/matches'                  => 'matches#show'
 
