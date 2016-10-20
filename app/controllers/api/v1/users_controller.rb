@@ -5,7 +5,7 @@ class Api::V1::UsersController < Api::ApiController
   def create
     @user = User.new(sign_up_params)
     if @user.valid?
-
+        @user.generate_auth_token
         @user.save
         render json: {user: @user}, status: 200
 
