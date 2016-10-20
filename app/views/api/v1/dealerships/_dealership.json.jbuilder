@@ -12,6 +12,7 @@ json.new_cars_url dealership.new_cars_url
 json.used_cars_url dealership.used_cars_url
 json.service_url dealership.service_url
 json.specials_url dealership.specials_url
+json.service_specials_url dealership.service_specials_url
 json.parts_url dealership.parts_url
 json.financing_url dealership.financing_url
 json.service_email dealership.service_email

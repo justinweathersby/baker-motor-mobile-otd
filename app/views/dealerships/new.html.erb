@@ -82,6 +82,13 @@
     </div>
 
     <div class="form-group row">
+      <label for="inputServSpecialsUrl" class="col-sm-2 col-form-label">Service Specials Url</label>
+      <div class="col-sm-10">
+        <%= f.url_field :service_specials_url, :id=> "inputServSpecialsUrl", :class=> "form-control", :placeholder=>"http://www.dealership.com/specials"  %>
+      </div>
+    </div>
+
+    <div class="form-group row">
       <label for="inputPartsUrl" class="col-sm-2 col-form-label">Parts Url</label>
       <div class="col-sm-10">
         <%= f.url_field :parts_url, :id=> "inputPartsUrl", :class=> "form-control", :placeholder=>"http://www.dealership.com/parts"  %>
@@ -94,6 +101,8 @@
         <%= f.url_field :financing_url, :id=> "inputFinancingUrl", :class=> "form-control", :placeholder=>"http://www.dealership.com/financing"  %>
       </div>
     </div>
+
+
 
     <hr />
 
