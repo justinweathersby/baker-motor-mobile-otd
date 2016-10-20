@@ -3,7 +3,7 @@ class Api::V1::DealershipsController < Api::ApiController
   # before_action :authenticate_with_token!
 
   def index
-    @dealerships = Dealership.all
+    @dealerships = Dealership.all.order('name ASC')
   end
 
   def show
