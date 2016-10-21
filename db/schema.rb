@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018203203) do
+ActiveRecord::Schema.define(version: 20161021144552) do
 
   create_table "dealerships", force: :cascade do |t|
     t.string   "name"
@@ -34,11 +34,13 @@ ActiveRecord::Schema.define(version: 20161018203203) do
     t.string   "background_image_content_type"
     t.integer  "background_image_file_size"
     t.datetime "background_image_updated_at"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "specials_url"
     t.string   "financing_url"
     t.string   "parts_url"
+    t.string   "service_specials_url"
+    t.integer  "iframeFriendly",                default: 1
   end
 
   create_table "push_notifications", force: :cascade do |t|

@@ -19,3 +19,4 @@ json.service_email dealership.service_email
 json.sales_email dealership.sales_email
 json.logo_url asset_url(dealership.logo.url(:thumb))
 json.background_image_url asset_url(dealership.background_image.url(:medium)) if dealership.background_image?
+json.iframeFriendly dealership.iframeFriendly
