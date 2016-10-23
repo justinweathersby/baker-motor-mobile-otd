@@ -4,7 +4,8 @@ class PushNotificationsController < ApplicationController
   before_action :set_push_notification, only: [:destroy]
 
   def index
-    @push_notifications = PushNotification.all
+    # @push_notifications = PushNotification.all
+    @push_notifications= PushNotification.all.paginate(:page => params[:page])
   end
 
   def show

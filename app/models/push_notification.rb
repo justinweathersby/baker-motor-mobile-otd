@@ -8,6 +8,8 @@ class PushNotification < ApplicationRecord
   # attribute :tokens, :string, array: true
   serialize :tokens, Array
 
+  self.per_page = 10 #Pagination Gem
+
 private
   def upload_notification_to_ionic
     puts self.tokens.to_json

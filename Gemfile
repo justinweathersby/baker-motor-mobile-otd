@@ -35,6 +35,9 @@ gem 'rack-cors'
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem "font-awesome-rails"
 
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap4'
+
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
 
