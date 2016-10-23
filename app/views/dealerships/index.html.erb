@@ -4,11 +4,21 @@
 
 <h1 class="text-md-center">Dealerships</h1>
 
-<% if current_user.has_role? :admin %>
-  <div class="row text-lg-right">
-    <%= link_to 'Add New Dealership', new_dealership_path, :class=>"btn btn-info"  %>
+
+  <div class="row">
+    <% if current_user.has_role? :admin %>
+    <div class="pull-right">
+      <%= link_to 'Add New Dealership', new_dealership_path, :class=>"btn btn-info"  %>
+    </div>
+    <% end %>
+    <div class="text-lg-left">
+      <%= link_to root_path, :class=>"btn btn-danger" do  %>
+        <i class="fa fa-chevron-circle-left fa-fw" aria-hidden="true"></i>Back
+      <% end %>
+    </div>
   </div>
-<% end %>
+
+
 
 <div class="row" style="padding: 2rem 0">
   <table class="table table-hover" style="background-color: white; padding-top:5rem; border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; border-radius: 0rem 0rem .25rem .25rem">
@@ -30,8 +40,8 @@
           <td><%= dealership.name %></td>
           <td class="text-lg-right">
             <!-- <%= link_to 'Show', dealership, :class=>"btn btn-outline-primary" if can? :read, dealership %> -->
-            <%= link_to 'Edit', edit_dealership_path(dealership), :class=>"btn btn-outline-warning" if can? :update, dealership %>
-            <%= link_to 'Remove', dealership, :class=>"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } if can? :manage, dealership %>
+            <%= link_to 'Edit', edit_dealership_path(dealership), :class=>"btn btn-outline-warning btn-sm" if can? :update, dealership %>
+            <%= link_to 'Remove', dealership, :class=>"btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } if can? :manage, dealership %>
           </td>
         </tr>
       <% end %>

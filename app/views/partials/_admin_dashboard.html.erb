@@ -40,7 +40,7 @@
                 <td><%= Dealership.with_role(:moderator, moderator).first.name %></td>
                 <td class="text-lg-center">
                   <!-- <%= link_to 'Edit', edit_registration_path(moderator), :class=>"btn btn-danger" %> -->
-                  <%= link_to 'Remove', moderator, :class=>"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Remove', moderator, :class=>"btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
               </tr>
             <% end %>
@@ -73,7 +73,7 @@
                 <td><%= customer.name %></td>
                 <td><%= customer.dealership.name if customer.dealership %></td>
                 <td class="text-lg-center">
-                  <%= link_to 'Remove', customer, :class=>"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Remove', customer, :class=>"btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
               </tr>
             <% end %>
