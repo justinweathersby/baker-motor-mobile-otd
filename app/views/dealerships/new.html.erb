@@ -102,8 +102,6 @@
       </div>
     </div>
 
-
-
     <hr />
 
     <div class="form-group row">
@@ -117,6 +115,22 @@
       <label for="inputServiceEmail" class="col-sm-2 col-form-label">Service Email</label>
       <div class="col-sm-10">
         <%= f.email_field :service_email, :id=> "inputServiceEmail", :class=> "form-control", :placeholder=>"service@dealership.com" %>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="form-group row">
+      <label for="inputTwitter" class="col-sm-2 col-form-label">Twitter Url</label>
+      <div class="col-sm-10">
+        <%= f.url_field :facebook_url, :id=> "inputTwitter", :class=> "form-control", :placeholder=>"https://twitter.com/bakermotorcochs" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputFacebook" class="col-sm-2 col-form-label">Facebook Url</label>
+      <div class="col-sm-10">
+        <%= f.url_field :twitter_url, :id=> "inputFacebook", :class=> "form-control", :placeholder=>"https://www.facebook.com/dealershipName" %>
       </div>
     </div>
 

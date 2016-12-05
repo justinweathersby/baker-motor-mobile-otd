@@ -17,6 +17,8 @@ json.parts_url dealership.parts_url
 json.financing_url dealership.financing_url
 json.service_email dealership.service_email
 json.sales_email dealership.sales_email
+json.facebook_url dealership.facebook_url
+json.twitter_url dealership.twitter_url
 json.logo_url asset_url(dealership.logo.url(:thumb))
 json.background_image_url asset_url(dealership.background_image.url(:medium)) if dealership.background_image?
 json.iframeFriendly dealership.iframeFriendly

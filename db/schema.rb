@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021144552) do
+ActiveRecord::Schema.define(version: 20161205212204) do
 
   create_table "dealerships", force: :cascade do |t|
     t.string   "name"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20161021144552) do
     t.string   "parts_url"
     t.string   "service_specials_url"
     t.integer  "iframeFriendly",                default: 1
+    t.string   "facebook_url"
+    t.string   "twitter_url"
   end
 
   create_table "push_notifications", force: :cascade do |t|

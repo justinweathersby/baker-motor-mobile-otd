@@ -130,6 +130,22 @@
       <hr />
 
       <div class="form-group row">
+        <label for="inputTwitter" class="col-sm-2 col-form-label">Twitter Url</label>
+        <div class="col-sm-10">
+          <%= f.url_field :facebook_url, :id=> "inputTwitter", :class=> "form-control", :placeholder=>"https://twitter.com/bakermotorcochs" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputFacebook" class="col-sm-2 col-form-label">Facebook Url</label>
+        <div class="col-sm-10">
+          <%= f.url_field :twitter_url, :id=> "inputFacebook", :class=> "form-control", :placeholder=>"https://www.facebook.com/dealershipName" %>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="form-group row">
         <label for="inputStreet" class="col-sm-2 col-form-label">Street</label>
         <div class="col-sm-10">
           <%= f.text_field :street, :id=> "inputStreet", :class=> "form-control", :placeholder=>"1111 Example Ave." %>
