@@ -25,7 +25,16 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  config.action_mailer.default_url_options = { :host => 'otd-baker-motor-mobile.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { :host => 'otd-baker-motor-mobile.herokuapp.com' }
+  ActionMailer::Base.smtp_settings = {
+    :address        => ENV['EMAIL_ADDRESS'],
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['EMAIL_USERNAME'],
+    :password       => ENV['EMAIL_PASSWORD'],
+    :enable_starttls_auto => true
+  }
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
