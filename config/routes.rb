@@ -25,9 +25,11 @@ Rails.application.routes.draw do
          resources :users, :only         => [:show, :create, :update]
          resources :dealerships, :only   => [:index, :show]
 
-        #  resources :messages
+         resources :messages
 
-
+         resources :conversations do
+          resources :messages
+         end
      end
    end
    #==========================================

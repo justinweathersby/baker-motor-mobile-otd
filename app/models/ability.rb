@@ -11,7 +11,13 @@ class Ability
       # can :update, Dealership if user.has_role?(:moderator, Dealership)
       can :update, Dealership, :id => Dealership.with_role(:moderator, user).pluck(:id)
       can :read, Dealership
+
+      cannot :index, [Conversation, Message]
+      can :manage, Conversation, sender_id: user.id
+      can :manage, Conversation, recipient_id: user.id
+      can :manage, Message, user_id: user.id
     end
+
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
