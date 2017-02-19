@@ -23,7 +23,7 @@ class Message < ActiveRecord::Base
        user_id = conversation.sender_id
      end
 
-     username = User.find(self.user_id).name
+     username = User.find(user_id).name.present? ? User.find(user_id).name : User.find(user_id).email
      token = User.find(user_id).device_token
      message_text = username + ": " + self.body
 

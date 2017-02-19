@@ -9,16 +9,17 @@ class Api::V1::SessionsController < Api::ApiController
 		user_device_type = request.headers['X-API-DEVICE-TYPE'].presence
 
 
-		user = user_email.present? && User.find_by_email(user_email)
-		if user
-			if user.valid_password?(user_password)
-				sign_in user, store: false
-				user.generate_auth_token
-				user.device_token = user_device_token
-				user.device_type = user_device_type
-				user.save
+		@user = user_email.present? && User.find_by_email(user_email)
+		if @user
+			if @user.valid_password?(user_password)
+				sign_in @user, store: false
+				@user.generate_auth_token
+				@user.device_token = user_device_token
+				@user.device_type = user_device_type
+				@user.save
 
-				render json: {user: user}, :status => :created
+				# render json: {user: user}, :status => :created
+				render :create, status: :created, formats: [:json]
 			else
 				render json: {errors: "Invalid email or password"}, status: 422
 			end
