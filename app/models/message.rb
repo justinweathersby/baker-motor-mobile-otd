@@ -1,7 +1,7 @@
 class Message < ActiveRecord::Base
  belongs_to :conversation
  belongs_to :user
- # after_create :upload_notification_to_ionic
+ after_create :upload_notification_to_ionic
 
  validates_presence_of :body
 
