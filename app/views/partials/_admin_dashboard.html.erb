@@ -13,8 +13,15 @@
         <a class="nav-link active" href="#moderator" role="tab" data-toggle="tab">Moderators</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#sales_rep" role="tab" data-toggle="tab">Sales Reps</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#service_rep" role="tab" data-toggle="tab">Service Reps</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#customer" role="tab" data-toggle="tab">Customers</a>
       </li>
+
     </ul>
 
     <!-- Tab panes -->
@@ -52,6 +59,77 @@
           <% end %>
         </div>
       </div>
+      <!-- END MODERATORS -->
+      <!-- BEGIN SALES REP -->
+      <div role="tabpanel" class="tab-pane fade" id="sales_rep">
+        <table class="table table-hover" style="padding-top:5rem;">
+          <thead>
+            <tr>
+              <th style="border-top:transparent">
+                Email
+              </th>
+              <th style="border-top:transparent">Name</th>
+              <th style="border-top:transparent">Dealership</th>
+              <th colspan="1" class="text-lg-center" style="border-top:transparent">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @sales_reps.each do |rep| %>
+              <tr>
+                <td><%= rep.email %></td>
+                <td><%= rep.name %></td>
+                <td><%= Dealership.with_role(:sales_rep, rep).first.name %></td>
+                <td class="text-lg-center">
+                  <!-- <%= link_to 'Edit', edit_registration_path(rep), :class=>"btn btn-danger" %> -->
+                  <%= link_to 'Remove', rep, :class=>"btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="row" style="margin: 1rem;border-top: .1rem solid #ddd;padding-top: 1rem;">
+          <%= link_to new_sales_rep_url, :class => "btn btn-info" do %>
+            <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Sales Representative
+          <% end %>
+        </div>
+      </div>
+      <!-- END SALES REP -->
+      <!-- BEGIN SERVICE REP -->
+      <div role="tabpanel" class="tab-pane fade" id="service_rep">
+        <table class="table table-hover" style="padding-top:5rem;">
+          <thead>
+            <tr>
+              <th style="border-top:transparent">
+                Email
+              </th>
+              <th style="border-top:transparent">Name</th>
+              <th style="border-top:transparent">Dealership</th>
+              <th colspan="1" class="text-lg-center" style="border-top:transparent">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @service_reps.each do |rep| %>
+              <tr>
+                <td><%= rep.email %></td>
+                <td><%= rep.name %></td>
+                <td><%= Dealership.with_role(:service_rep, rep).first.name %></td>
+                <td class="text-lg-center">
+                  <!-- <%= link_to 'Edit', edit_registration_path(rep), :class=>"btn btn-danger" %> -->
+                  <%= link_to 'Remove', rep, :class=>"btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="row" style="margin: 1rem;border-top: .1rem solid #ddd;padding-top: 1rem;">
+          <%= link_to new_service_rep_url, :class => "btn btn-info" do %>
+            <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Service Representative
+          <% end %>
+        </div>
+      </div>
+      <!-- END SERVICE REP -->
       <div role="tabpanel" class="tab-pane fade" id="customer">
         <table class="table table-hover" style="padding-top:5rem;">
           <thead>
