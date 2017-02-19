@@ -17,7 +17,7 @@ private
 
     params = {
       "tokens" => self.tokens,
-      "profile" => => ENV['IONIC_PUSH_ENV'],
+      "profile" => ENV['IONIC_PUSH_ENV'],
       "notification":{
         "message": self.message,
         "android":{
