@@ -9,7 +9,8 @@ class Api::V1::SessionsController < Api::ApiController
 		user_device_type = request.headers['X-API-DEVICE-TYPE'].presence
 
 
-		@user = user_email.present? && User.find_by_email(user_email)
+		@user = User.find_by_email(user_email) if user_email.present?
+		puts "USER::: BEFORE::: " + @user.inspect
 		if @user
 			if @user.valid_password?(user_password)
 				sign_in @user, store: false
@@ -24,6 +25,7 @@ class Api::V1::SessionsController < Api::ApiController
 				render json: {errors: "Invalid email or password"}, status: 422
 			end
 		else
+			puts "USER::: ERROR::: " + @user.inspect
 			render json: {errors: "User not found"}, status: 422
 		end
 	end
