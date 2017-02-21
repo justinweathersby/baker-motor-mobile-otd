@@ -4,7 +4,7 @@ json.name @user.name
 json.auth_token @user.auth_token
 json.dealership_id @user.dealership_id
 json.created_at @user.created_at
-
+json.isCustomer @user.has_role?(:customer) ? true : false
 json.roles @user.roles do |role|
   json.id role.id
   json.name role.name
