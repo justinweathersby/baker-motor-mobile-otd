@@ -49,7 +49,7 @@ class Conversation < ActiveRecord::Base
    elsif date < DateTime.now.beginning_of_day()
      return date.strftime("%A")
    else
-     return date.strftime("%I:%M%p")
+     return date.strftime("%l:%M %P")
    end
  end
 
