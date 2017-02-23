@@ -10,6 +10,7 @@ class ModeratorsController < ApplicationController
     @dealership = Dealership.find(params[:dealership_id])
     if @user.valid? and @dealership.present?
         @user.add_role :moderator, @dealership
+        @user.dealership_id = @dealership.id
         if @user.save
           redirect_to root_url, notice: 'Moderator was successfully created.'
         else
@@ -24,14 +25,15 @@ class ModeratorsController < ApplicationController
   #   @user = current_user
   # end
 
-  # def update
-  # 	@user = current_user
-  # 	if @user.update_attributes(update_params)
-  # 		render :update, status: :ok, formats: [:json]
-  # 	else
-  # 		format.html { render :edit }
-  # 	end
-  # end
+  def update
+  	@user = current_user
+  	if @user.update_attributes(update_params)
+  		render :update, status: :ok, formats: [:json]
+      # redirect_to root_url, notice: 'Moderator was successfully created.'
+  	else
+  		format.html { render :edit }
+  	end
+  end
 
   # def reset_password
   #   @user = User.find_by_email(params[:user][:email])
@@ -46,11 +48,11 @@ class ModeratorsController < ApplicationController
   private
 
   def sign_up_params
-    params[:moderator].permit(:name, :email, :password, :password_confirmation, :dealership_id)
+    params[:moderator].permit(:name, :email, :password, :password_confirmation, :dealership_id, :image)
     # params.permit(:first_name,:last_name,:company_name,:organization_name ,:officer_name,:email, :password, :password_confirmation)
   end
 
   def update_params
-    params.permit(:id, :name, :password)
+    params.permit(:name, :email, :password, :password_confirmation, :dealership_id, :image)
   end
 end

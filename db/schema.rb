@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218000843) do
+ActiveRecord::Schema.define(version: 20170222055600) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -101,6 +101,10 @@ ActiveRecord::Schema.define(version: 20170218000843) do
     t.integer  "dealership_id"
     t.string   "device_token"
     t.string   "device_type"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["auth_token"], name: "index_users_on_auth_token"
     t.index ["dealership_id"], name: "index_users_on_dealership_id"
     t.index ["email"], name: "index_users_on_email", unique: true

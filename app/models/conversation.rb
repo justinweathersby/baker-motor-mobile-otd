@@ -38,6 +38,14 @@ class Conversation < ActiveRecord::Base
    end
  end
 
+ def matched_dealership(current_user)
+   if self.sender_id == current_user.id
+     return User.find(self.recipient_id).dealership ? User.find(self.recipient_id).dealership.name : ""
+   else
+    return User.find(self.sender_id).dealership ? User.find(self.sender_id).dealership.name : ""
+   end
+ end
+
  def last_message_date
    self.messages.last.created_at
  end

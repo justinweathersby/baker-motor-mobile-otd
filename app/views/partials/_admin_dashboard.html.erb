@@ -65,9 +65,8 @@
         <table class="table table-hover" style="padding-top:5rem;">
           <thead>
             <tr>
-              <th style="border-top:transparent">
-                Email
-              </th>
+              <th style="border-top:transparent">Image</th>
+              <th style="border-top:transparent">Email</th>
               <th style="border-top:transparent">Name</th>
               <th style="border-top:transparent">Dealership</th>
               <th colspan="1" class="text-lg-center" style="border-top:transparent">Actions</th>
@@ -77,11 +76,12 @@
           <tbody>
             <% @sales_reps.each do |rep| %>
               <tr>
+                <td><%= image_tag rep.image.url(:thumb), style: "max-width:50px" %></td>
                 <td><%= rep.email %></td>
                 <td><%= rep.name %></td>
                 <td><%= Dealership.with_role(:sales_rep, rep).first.name %></td>
                 <td class="text-lg-center">
-                  <!-- <%= link_to 'Edit', edit_registration_path(rep), :class=>"btn btn-danger" %> -->
+                  <%= link_to 'Edit',  edit_sales_rep_path(rep), :class=>"btn btn-danger" %>
                   <%= link_to 'Remove', rep, :class=>"btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
               </tr>
@@ -100,9 +100,8 @@
         <table class="table table-hover" style="padding-top:5rem;">
           <thead>
             <tr>
-              <th style="border-top:transparent">
-                Email
-              </th>
+              <th style="border-top:transparent">Image</th>
+              <th style="border-top:transparent">Email</th>
               <th style="border-top:transparent">Name</th>
               <th style="border-top:transparent">Dealership</th>
               <th colspan="1" class="text-lg-center" style="border-top:transparent">Actions</th>
@@ -112,11 +111,12 @@
           <tbody>
             <% @service_reps.each do |rep| %>
               <tr>
+                <td><%= image_tag rep.image.url(:thumb), style: "max-width:50px"  %></td>
                 <td><%= rep.email %></td>
                 <td><%= rep.name %></td>
                 <td><%= Dealership.with_role(:service_rep, rep).first.name %></td>
                 <td class="text-lg-center">
-                  <!-- <%= link_to 'Edit', edit_registration_path(rep), :class=>"btn btn-danger" %> -->
+                  <%= link_to 'Edit', edit_service_rep_path(rep), :class=>"btn btn-danger" %>
                   <%= link_to 'Remove', rep, :class=>"btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
               </tr>
@@ -162,94 +162,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="row" style="font-size:14px;">
-  <div class="col-lg-3 col-md-6">
-      <div class="card card-blue">
-          <div class="card-header">
-              <div class="row">
-                  <div class="col-xs-3">
-                      <i class="fa fa-gift fa-5x"></i>
-                  </div>
-                  <div class="col-xs-9 text-xs-right">
-                      <div class="huge">26</div>
-                      <div>In-Kind Donations</div>
-                  </div>
-              </div>
-          </div>
-          <a href="#">
-              <div class="card-footer">
-                  <span class="pull-left">View Details</span>
-                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                  <div class="clearfix"></div>
-              </div>
-          </a>
-      </div>
-  </div>
-  <div class="col-lg-3 col-md-6">
-      <div class="card card-green">
-          <div class="card-header">
-              <div class="row">
-                  <div class="col-xs-3">
-                      <i class="fa fa-cc-stripe fa-4x"></i>
-                  </div>
-                  <div class="col-xs-9 text-xs-right">
-                      <div class="huge">$121</div>
-                      <div>Monetary Donations</div>
-                  </div>
-              </div>
-          </div>
-          <a href="#">
-              <div class="card-footer">
-                  <span class="pull-left">View Details</span>
-                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                  <div class="clearfix"></div>
-              </div>
-          </a>
-      </div>
-  </div>
-  <div class="col-lg-3 col-md-6">
-      <div class="card card-yellow">
-          <div class="card-header">
-              <div class="row">
-                  <div class="col-xs-3">
-                      <i class="fa fa-bicycle fa-5x"></i>
-                  </div>
-                  <div class="col-xs-9 text-xs-right">
-                      <div class="huge">124</div>
-                      <div>Local Needs</div>
-                  </div>
-              </div>
-          </div>
-          <a href="#">
-              <div class="card-footer">
-                  <span class="pull-left">View Details</span>
-                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                  <div class="clearfix"></div>
-              </div>
-          </a>
-      </div>
-  </div>
-  <div class="col-lg-3 col-md-6">
-      <div class="card card-red">
-          <div class="card-header">
-              <div class="row">
-                  <div class="col-xs-3">
-                      <i class="fa fa-support fa-5x"></i>
-                  </div>
-                  <div class="col-xs-9 text-xs-right">
-                      <div class="huge">$132</div>
-                      <div>Campaign Support</div>
-                  </div>
-              </div>
-          </div>
-          <a href="#">
-              <div class="card-footer">
-                  <span class="pull-left">View Details</span>
-                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                  <div class="clearfix"></div>
-              </div>
-          </a>
-      </div>
-  </div>
-</div> -->

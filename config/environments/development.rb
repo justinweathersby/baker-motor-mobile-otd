@@ -54,6 +54,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 
   config.paperclip_defaults = {
     storage: :s3,

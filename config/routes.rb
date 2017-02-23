@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         #  get '/matches'                  => 'matches#show'
 
          resources :users, :only         => [:show, :create, :update]
-         
+
          resources :dealerships, :only   => [:index, :show] do
            resources :sales_reps, :controller => 'sales_reps', :only => [:index, :show]
            resources :service_reps, :controller => 'service_reps', :only => [:index, :show]
