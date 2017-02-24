@@ -40,9 +40,9 @@ class Conversation < ActiveRecord::Base
 
  def matched_dealership(current_user)
    if self.sender_id == current_user.id
-     return User.find(self.recipient_id).dealership ? User.find(self.recipient_id).dealership.name : ""
+     return User.find(self.recipient_id).dealership ? User.find(self.recipient_id).dealership : nil
    else
-    return User.find(self.sender_id).dealership ? User.find(self.sender_id).dealership.name : ""
+    return User.find(self.sender_id).dealership ? User.find(self.sender_id).dealership : nil
    end
  end
 
