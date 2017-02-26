@@ -18,12 +18,14 @@ class Message < ActiveRecord::Base
      conversation = self.conversation
 
      if self.user_id == conversation.sender_id
-       user_id = conversation.recipient_id
+       user_id   = conversation.recipient_id
+       sender_id = conversation.sender_id
      else
-       user_id = conversation.sender_id
+       user_id   = conversation.sender_id
+       sender_id = conversation.recipient_id
      end
 
-     username = User.find(user_id).name.present? ? User.find(user_id).name : User.find(user_id).email
+     username = User.find(sender_id).name.present? ? User.find(sender_id).name : User.find(sender_id).email
      token = User.find(user_id).device_token
      message_text = username + ": " + self.body
 
