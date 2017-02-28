@@ -10,8 +10,14 @@ class Api::V1::MessagesController < Api::ApiController
   def create
     @message = @conversation.messages.new(message_params)
     @message.user_id = current_user.id
+
     if  @message.save
-      @conversation.touch
+      if current_user.id == @conversation.sender_id
+       @conversation.recipient_read = false;
+      else
+       @conversation.sender_read = false;
+      end
+      @conversation.save
       render :new, status: :ok, formats: [:json]
     else
       render json: @message.errors, status: :bad_request
@@ -20,6 +26,13 @@ class Api::V1::MessagesController < Api::ApiController
 
   def index
     @messages = @conversation.messages.order(created_at: :asc).last(20)
+
+    if current_user.id == @conversation.sender_id
+     @conversation.sender_read = true;
+    else
+     @conversation.recipient_read = true;
+    end
+    @conversation.save
   end
 
   def show
