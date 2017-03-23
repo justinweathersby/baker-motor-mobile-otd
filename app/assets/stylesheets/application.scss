@@ -15,7 +15,11 @@
 
  */
 
-
+ @import "vendor/bootstrap-switch/css/bootstrap-switch.min";
+ @import "vendor/metronic/css/components.min";
+ @import "vendor/metronic/css/plugins.min";
+ @import "vendor/metronic/css/layout.min";
+ @import "vendor/metronic/css/themes/blue.min";
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
