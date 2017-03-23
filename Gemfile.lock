@@ -39,8 +39,6 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.2)
-    autoprefixer-rails (6.5.0)
-      execjs
     aws-sdk (2.6.9)
       aws-sdk-resources (= 2.6.9)
     aws-sdk-core (2.6.9)
@@ -48,12 +46,12 @@ GEM
     aws-sdk-resources (2.6.9)
       aws-sdk-core (= 2.6.9)
     bcrypt (3.1.11)
-    bootstrap (4.0.0.alpha4)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
+    bootstrap-sass (3.3.1.0)
+      sass (~> 3.2)
     builder (3.2.2)
     byebug (9.0.5)
     cancancan (1.15.0)
+    chunky_png (1.3.8)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -65,6 +63,22 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+    compass-rails (3.0.2)
+      compass (~> 1.0.0)
+      sass-rails (< 5.1)
+      sprockets (< 4.0)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     devise (4.2.0)
@@ -164,6 +178,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    simple-line-icons-rails (0.1.2)
+      railties (>= 3.2, <= 5.1)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -197,18 +213,19 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     will_paginate (3.1.5)
-    will_paginate-bootstrap4 (0.1.2)
-      will_paginate (~> 3.0, >= 3.0.9)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   aws-sdk (~> 2.3)
-  bootstrap (~> 4.0.0.alpha4)
+  bootstrap-sass (= 3.3.1)
   byebug
   cancancan (~> 1.15)
   coffee-rails (~> 4.2)
+  compass-rails
   devise
   font-awesome-rails
   jbuilder (~> 2.5)
@@ -222,6 +239,7 @@ DEPENDENCIES
   rails_12factor
   rolify
   sass-rails (~> 5.0)
+  simple-line-icons-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
@@ -230,7 +248,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console
   will_paginate (~> 3.1.0)
-  will_paginate-bootstrap4
+  will_paginate-bootstrap
 
 BUNDLED WITH
    1.13.3

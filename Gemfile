@@ -31,12 +31,20 @@ gem 'devise'
 gem 'cancancan', '~> 1.15'
 gem 'rolify'
 gem 'rack-cors'
+#
+# gem 'bootstrap', '~> 4.0.0.alpha4'
+# gem "font-awesome-rails"
+#
+# gem 'will_paginate', '~> 3.1.0'
+# gem 'will_paginate-bootstrap4'
 
-gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'bootstrap-sass', '3.3.1'
+gem 'compass-rails'
 gem "font-awesome-rails"
-
+gem 'simple-line-icons-rails'
 gem 'will_paginate', '~> 3.1.0'
-gem 'will_paginate-bootstrap4'
+gem 'will_paginate-bootstrap'
+
 
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
