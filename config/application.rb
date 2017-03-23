@@ -18,6 +18,7 @@ module BakerMotorMobileOtd
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+    config.serve_static_assets = true
     
     config.middleware.insert_before 0, "Rack::Cors" do
      allow do
