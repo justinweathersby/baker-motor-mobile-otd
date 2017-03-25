@@ -32,7 +32,7 @@
                 <tr>
                     <th>
                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                            <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" />
+                            <input type="checkbox" class="group-checkable" data-set="#users_notifications_checkbox_table .checkboxes" />
                             <span></span>
                         </label>
                     </th>
@@ -59,7 +59,7 @@
         </table>
         <div class="row" style="text-align:center">
           <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.submit "Create", :type => "submit", :class=>"btn btn-primary", :style=>"border-radius: 5px !important; margin-top:10px; background: #FF5252; font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif'; text-shadow:none; font-variant:none; width: 92%; margin-top:30px" %>
+          <%= f.submit "Send", :type => "submit", :class=>"btn btn-primary", :style=>"border-radius: 5px !important; margin-top:10px; background: #FF5252; font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif'; text-shadow:none; font-variant:none; width: 92%; margin-top:30px" %>
         </div>
         <% end %>
       </div>
