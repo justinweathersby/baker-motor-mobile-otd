@@ -8,6 +8,10 @@
  */
 
  //= depend_on_asset "bg-pattern.png"
+ .row{
+   margin-left:0 !important;
+   margin-right:0!important;
+ }
 
 .main-background{
   background: url("bg-pattern.png"), #455A64;

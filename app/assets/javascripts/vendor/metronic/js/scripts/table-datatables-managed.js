@@ -48,7 +48,9 @@ var initPushNotificationsIndexTable = function () {
             },
             {
                 "className": "dt-right"
-            }
+            },
+            { "width": "60%", "targets": 0 },
+            { "width": "30%", "targets": 1 }
         ],
         "order": [
             [1, "asc"]
