@@ -5,7 +5,7 @@ class PushNotificationsController < ApplicationController
 
   def index
     # @push_notifications = PushNotification.all
-    @push_notifications= PushNotification.all.paginate(:page => params[:page])
+    @push_notifications= PushNotification.all
   end
 
   def show
@@ -28,7 +28,7 @@ class PushNotificationsController < ApplicationController
       device_token = User.find(t).device_token
       @push_notification.tokens.push(device_token) unless device_token.nil?
     end
-    
+
     respond_to do |format|
       if @push_notification.save
         format.html { redirect_to push_notifications_path, notice: 'Push Notification was successfully created.' }
