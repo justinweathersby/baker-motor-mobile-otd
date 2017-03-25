@@ -6,12 +6,15 @@
  /*
  *= require font-awesome
  */
+
+ //= depend_on_asset "bg-pattern.png"
+
 .main-background{
-  background: url("/assets/bg-pattern.png"), #455A64;
+  background: url("bg-pattern.png"), #455A64;
   /* fallback for old browsers */
-  background: url("/assets/bg-pattern.png"), -webkit-linear-gradient(to left, #455A64, #CFD8DC);
+  background: url("bg-pattern.png"), -webkit-linear-gradient(to left, #455A64, #CFD8DC);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: url("/assets/bg-pattern.png"), linear-gradient(to left, #455A64, #CFD8DC);
+  background: url("bg-pattern.png"), linear-gradient(to left, #455A64, #CFD8DC);
 }
 .nounderline{text-decoration: none}
 
@@ -184,11 +187,11 @@ header {
   width: 100%;
   min-height: auto;
   overflow-y: hidden;
-  background: url("/assets/bg-pattern.png"), #455A64;
+  background: url("bg-pattern.png"), #455A64;
   /* fallback for old browsers */
-  background: url("/assets/bg-pattern.png"), -webkit-linear-gradient(to left, #455A64, #CFD8DC);
+  background: url("bg-pattern.png"), -webkit-linear-gradient(to left, #455A64, #CFD8DC);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: url("/assets/bg-pattern.png"), linear-gradient(to left, #455A64, #CFD8DC);
+  background: url("bg-pattern.png"), linear-gradient(to left, #455A64, #CFD8DC);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
@@ -335,7 +338,7 @@ section.cta {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('/assets/bg-cta.jpg');
+  background-image: url('bg-cta.jpg');
   padding: 250px 0;
 }
 section.cta .cta-content {
