@@ -4,7 +4,9 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+# Bundler.require(*Rails.groups)
+
+Bundler.require(:default, :assets, Rails.env)
 
 module BakerMotorMobileOtd
   class Application < Rails::Application
@@ -18,7 +20,7 @@ module BakerMotorMobileOtd
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
-    
+
     config.middleware.insert_before 0, "Rack::Cors" do
      allow do
        origins '*'

@@ -1,9 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # Code is not reloaded between requests.
-  config.cache_classes = true
-
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -22,8 +19,9 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = false #To stop run time assets precompile in production.
+  config.assets.digest = true  #To access assets which are precompiled and in their names have appendend digets by rails
+  config.cache_classes = true #allowing caching assets
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'otd-baker-motor-mobile.herokuapp.com' }
