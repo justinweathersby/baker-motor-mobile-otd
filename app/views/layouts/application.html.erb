@@ -27,9 +27,9 @@
         <% end %>
       <%= yield %>
     </div>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <%= javascript_include_tag 'application' %>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+
     <script>
     window.setTimeout(function () {
          $(".alert-info").slideUp(500, function () {
