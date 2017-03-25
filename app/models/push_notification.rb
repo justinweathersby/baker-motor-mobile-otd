@@ -7,6 +7,7 @@ class PushNotification < ApplicationRecord
 
   # attribute :tokens, :string, array: true
   serialize :tokens, Array
+  serialize :sent_to, Array
 
   self.per_page = 10 #Pagination Gem
 

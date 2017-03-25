@@ -23,12 +23,16 @@ class PushNotificationsController < ApplicationController
     @push_notification = PushNotification.new(push_notification_params)
     @push_notification.user_id = current_user.id
 
-    respond_to do |format|
-      if @push_notification.save
-        format.html { redirect_to push_notifications_path, notice: 'Push Notification was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    @push_notification.sent_to = params[:tokens]
+    @push_notification.sent_to.each do |t|
+      device_token = User.find(t).device_token
+      @push_notification.tokens.push(device_token) unless device_token.nil?
+    end
+
+    if @push_notification.save
+      format.html { redirect_to push_notifications_path, notice: 'Push Notification was successfully created.' }
+    else
+      format.html { render :new }
     end
   end
 
