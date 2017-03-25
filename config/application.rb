@@ -21,6 +21,11 @@ module BakerMotorMobileOtd
       end if File.exists?(env_file)
     end
 
+    # Enable the asset pipeline
+    config.assets.enabled = true
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
+
     config.middleware.insert_before 0, "Rack::Cors" do
      allow do
        origins '*'
