@@ -30,6 +30,14 @@ class Conversation < ActiveRecord::Base
    end
  end
 
+ def matched_email(current_user)
+   if self.sender_id == current_user.id
+     return User.find(self.recipient_id).email
+   else
+    return User.find(self.sender_id).email
+   end
+ end
+
  def matched_image(current_user)
    if self.sender_id == current_user.id
      return User.find(self.recipient_id).image.url(:thumb)

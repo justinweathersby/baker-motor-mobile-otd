@@ -43,6 +43,10 @@ Rails.application.routes.draw do
   resources :sales_reps, :controller => 'sales_reps'
   resources :service_reps, :controller => 'service_reps'
   # devise_for :users
+  
+  resources :conversations do
+   resources :messages
+  end
 
   put 'moderators/:id/edit', to: 'moderators#update'
   put 'sales_reps/:id/edit', to: 'sales_reps#update'

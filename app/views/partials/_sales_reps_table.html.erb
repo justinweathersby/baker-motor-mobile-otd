@@ -30,6 +30,7 @@
                                   <ul class="dropdown-menu pull-right">
                                     <li>
                                       <%= link_to 'Edit',  edit_sales_rep_path(rep) %>
+                                      <%= link_to 'Conversations', conversations_path(rep_id: rep.id) %>
                                       <!-- <%= link_to 'Remove',  rep, method: :delete, data: {confirm: "Are you sure?"} %> -->
                                     </li>
                                   </ul>
