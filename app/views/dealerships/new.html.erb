@@ -79,10 +79,10 @@
 
                 <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                      <% unless @dealership.logo? %>
+                      <% unless @dealership.background_image? %>
                         <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
                       <% else %>
-                        <%= image_tag(@dealership.logo.url(:thumb), :style => "height:100%") %>
+                        <%= image_tag(@dealership.background_image.url(:medium), :style => "height:100%") %>
                       <% end %>
                     </div>
                     <div>
