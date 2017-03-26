@@ -1,5 +1,8 @@
 <div class="container">
-  <h2 class="text-lg-center" style="padding: 1rem 0">Edit User</h2>
+  <div class="row">
+    <h1 class="page-heading">Edit Account Info</h1>
+  </div>
+  <hr style="margin-top:0"/>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -27,29 +30,43 @@
 
   <div class="row text-center"><%= image_tag @user.image.url(:small) if @user.image.present? %></div>
 
-  <div class="form-group row">
-    <label for="inputLogo" class="col-sm-2 col-form-label">Image</label>
-    <div class="col-sm-10">
-      <%= f.file_field :image, :id=> "inputLogo", :class=> "form-control" %>
+  <div class="row">
+    <div class="form-group ">
+      <div class="col-xs-12" style="text-align:center">
+        <h4>Image Upload</h4>
+
+            <div class="fileinput fileinput-new" data-provides="fileinput">
+                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
+                  <% unless @user.image? %>
+                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                  <% else %>
+                    <%= image_tag(@user.image.url(:medium), :style => "height:100%") %>
+                  <% end %>
+                </div>
+                <div>
+                    <span class="btn red btn-file">
+                        <span class="fileinput-new"> Select image </span>
+                        <span class="fileinput-exists"> Change </span>
+                        <%= f.file_field :image %>
+                      </span>
+
+                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                </div>
+            </div>
+            <!-- <div class="clearfix margin-top-10" style="font-size:12px">
+                <span class="label label-success">NOTE!</span> Image preview only works in IE10+, FF3.6+, Safari6.0+, Chrome6.0+ and Opera11.1+. </div> -->
+      </div>
     </div>
   </div>
-
-  <!-- <div class="form-group row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <%= f.password_field :password, :id=> "inputPassword", :class=> "form-control", autocomplete: "off" %>
-    </div>
-  </div>
+  <hr />
 
   <div class="form-group row">
-    <label for="inputPasswordConf" class="col-sm-2 col-form-label">Password Confirmation</label>
-    <div class="col-sm-10">
-      <%= f.password_field :password_confirmation, :id=> "inputPasswordConf", :class => "form-control",  autocomplete: "off" %>
+    <div class="col-sm-2">
+      <%= link_to 'Back', root_path, :class=>"btn btn-warning", style: "width:100%;"%>
     </div>
-  </div> -->
-
-  <div class="actions text-lg-center">
-    <%= f.submit "Update", :class=>"btn btn-primary btn-block" %>
+    <div class="col-sm-10">
+      <%= f.submit "Update", :type => "submit", :class=>"btn btn-primary", style: "width:100%;" %>
+    </div>
   </div>
 <% end %>
 

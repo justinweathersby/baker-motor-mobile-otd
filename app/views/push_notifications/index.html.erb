@@ -1,22 +1,13 @@
 <div class="col-lg-12">
   <div class="row">
-    <h1 class="text-center" style="padding: 1rem 0">Push Notifications</h1>
+    <h1 class="page-heading">Push Notifications</h1>
   </div>
-
-  <div class="row">
-    <% if current_user.has_role? :admin %>
-      <div class="pull-right">
-        <%= link_to  new_push_notification_path, :class=>"btn btn-warning"  do %>
-          Create Push Notification
-        <% end %>
-      </div>
+<div class="row text-right">
+    <%= link_to root_path, :class => "btn btn-info" do %>
+      <i class="fa fa-chevron-circle-left fa-fw" aria-hidden="true"></i>  Dashboard
     <% end %>
-    <div class="text-lg-left">
-      <%= link_to root_path, :class=>"btn btn-danger" do  %>
-        <i class="fa fa-chevron-circle-left fa-fw" aria-hidden="true"></i>Back
-      <% end %>
-    </div>
-  </div>
+    <%= link_to "Send Push Notification", new_push_notification_path, :class=>"btn btn-warning" if current_user.has_role? :admin%>
+</div>
 
 <div class="row" style="padding: 2rem 0">
   <div class="col-sm-12" style="padding:0">
@@ -40,7 +31,7 @@
                             <%= notification.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
                           </td>
                           <td>
-                            <%= link_to 'Remove', notification, :class=>"btn btn-sm btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                            <%= link_to 'Remove', notification, :class=>"btn red btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
                           </td>
                         </tr>
                       <% end %>

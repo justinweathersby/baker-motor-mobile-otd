@@ -1,6 +1,8 @@
 <div class="container">
-  <h2 class="text-center" style="padding: 1rem 0">Add Sales Representative</h2>
-
+  <div class="row">
+    <h1 class="page-heading">Add Sales Representative</h1>
+  </div>
+  <hr style="margin-top:0"/>
 
   <%= form_for :sales_rep, url: {action: "create"} do |f| %>
 
@@ -68,6 +70,8 @@
       </div>
     </div>
 
+    <hr />
+
     <div class="form-group row">
       <div class="col-sm-2">
         <%= link_to 'Back', root_path, :class=>"btn btn-warning", style: "width:100%;"%>
@@ -77,5 +81,4 @@
       </div>
     </div>
   <% end %>
-
 </div>

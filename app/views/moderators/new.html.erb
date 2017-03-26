@@ -1,6 +1,8 @@
 <div class="container">
-  <h2 class="text-center" style="padding: 1rem 0">Add Moderator</h2>
-
+  <div class="row">
+    <h1 class="page-heading">Add Moderator</h1>
+  </div>
+  <hr style="margin-top:0"/>
 
   <%= form_for :moderator, url: {action: "create"} do |f| %>
 
@@ -38,6 +40,7 @@
         <%= f.password_field :password_confirmation, :id=> "inputPasswordConf", :class => "form-control",  autocomplete: "off" %>
       </div>
     </div>
+    <hr />
 
     <div class="form-group row">
       <div class="col-sm-2">

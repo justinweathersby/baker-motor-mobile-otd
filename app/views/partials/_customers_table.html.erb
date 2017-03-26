@@ -21,20 +21,6 @@
                           <td><%=  customer.name %></td>
                           <td><%=  customer.dealership.name if customer.dealership  %></td>
                           <td><%=  customer.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
-                          <!-- <td>
-                            <div class="actions" style="text-align:center">
-                              <div class="btn-group">
-                                  <a class="btn dark btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="text-decoration: none;"> Actions
-                                      <i class="fa fa-angle-down"></i>
-                                  </a>
-                                  <ul class="dropdown-menu pull-right">
-                                    <li>
-                                      <%= link_to 'Remove',  customer, method: :delete, data: {confirm: "Are you sure?"} %>
-                                    </li>
-                                  </ul>
-                              </div>
-                          </div>
-                         </td> -->
                       </tr>
                     <% end %>
                   </tbody>

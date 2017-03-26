@@ -1,5 +1,5 @@
 <div class="col-sm-12" style="padding:0">
-  <h1 class="text-center">Messages</h1>
+  <h1 class="page-heading">Messages</h1>
 
   <div class="row text-right" style="padding: 2rem 0;">
     <%= link_to root_path, :class => "btn btn-warning" do  %>
@@ -20,7 +20,7 @@
         <%- @messages.each do |msg| %>
           <div class="row">
             <div class="col-lg-4 text-right">
-              <h5 style="margin:0; margin-bottom:5px;">
+              <h5 style="margin:0; margin-bottom:5px; font-weight:400">
                 <%= User.find(msg.user_id).name.present? ? User.find(msg.user_id).name : User.find(msg.user_id).email %>:
                 <span style="font-size: 10px;color: #c1c1c1; display:block"><%= msg.message_time %></span>
               </h5>

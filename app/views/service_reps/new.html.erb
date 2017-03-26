@@ -1,5 +1,8 @@
 <div class="container">
-  <h2 class="text-center" style="padding: 1rem 0">Add Service Representative</h2>
+  <div class="row">
+    <h1 class="page-heading">Add Service Representative</h1>
+  </div>
+  <hr style="margin-top:0"/>
 
 
   <%= form_for :service_rep, url: {action: "create"} do |f| %>
@@ -67,6 +70,7 @@
         <%= f.password_field :password_confirmation, :id=> "inputPasswordConf", :class => "form-control",  autocomplete: "off" %>
       </div>
     </div>
+    <hr />
 
     <div class="form-group row">
       <div class="col-sm-2">
