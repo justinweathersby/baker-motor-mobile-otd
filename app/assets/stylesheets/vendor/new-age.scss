@@ -8,10 +8,7 @@
  */
 
  //= depend_on_asset "bg-pattern.png"
- .row{
-   margin-left:0 !important;
-   margin-right:0!important;
- }
+
 
 .main-background{
   background: url("bg-pattern.png"), #455A64;
@@ -63,10 +60,10 @@ a:focus {
   color: #FF5252;
 }
 hr {
-  max-width: 100px;
-  margin: 25px auto 0;
-  border-width: 1px;
-  border-color: rgba(34, 34, 34, 0.1);
+  max-width: 95%;
+  margin: 25px auto;
+  border-top: 1px solid rgba(238, 238, 238, 0.5);
+  box-shadow: 0 0 10px grey;
 }
 hr.light {
   border-color: white;
@@ -77,7 +74,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+  font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px;
 }
@@ -487,4 +484,17 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #222222;
+}
+
+.row{
+  margin-left:0 !important;
+  margin-right:0!important;
+}
+
+.h1{
+  font-weight:400;
+}
+
+hr{
+  margin: 25px auto;
 }

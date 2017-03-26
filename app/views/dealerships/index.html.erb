@@ -1,60 +1,55 @@
-<div class="col-lg-12">
+<div class="col-sm-12" style="padding:0">
+  <h1 class="text-center">Dealerships</h1>
 
-<h1 class="text-center">Dealerships</h1>
-
-
-  <div class="row">
-    <% if current_user.has_role? :admin %>
-    <div class="pull-right">
-      <%= link_to 'Add New Dealership', new_dealership_path, :class=>"btn btn-info"  %>
-    </div>
+  <div class="row text-right" style="padding: 2rem 0;">
+    <%= link_to root_path, :class => "btn btn-warning" do  %>
+      <i class="fa fa-chevron-circle-left fa-fw" aria-hidden="true"></i>Dashboard
     <% end %>
-    <div class="text-left">
-      <%= link_to root_path, :class=>"btn btn-danger" do  %>
-        <i class="fa fa-chevron-circle-left fa-fw" aria-hidden="true"></i>Back
-      <% end %>
-    </div>
+    <% if current_user.has_role? :admin %>
+      <%= link_to 'Add New Dealership', new_dealership_path, :class=>"btn btn-info"  %>
+    <% end %>
   </div>
 
-
-
-<div class="row" style="padding: 2rem 0">
-  <table class="table table-hover" style="background-color: white; padding-top:5rem; border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; border-radius: 0rem 0rem .25rem .25rem">
-    <thead>
-      <tr>
-        <th>
-          Logo
-        </th>
-        <th>Name</th>
-        <th colspan="1" class="text-center"></th>
-        <!-- <th colspan="3"></th> -->
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @dealerships.each do |dealership| %>
-        <tr data-href='<%= dealership_path(dealership.id)%>'>
-          <td><%= image_tag dealership.logo.url(:thumb) %></td>
-          <td><%= dealership.name %></td>
-          <td class="text-lg-right">
-            <!-- <%= link_to 'Show', dealership, :class=>"btn btn-outline-primary" if can? :read, dealership %> -->
-            <%= link_to 'Edit', edit_dealership_path(dealership), :class=>"btn btn-outline-warning btn-sm" if can? :update, dealership %>
-            <%= link_to 'Remove', dealership, :class=>"btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } if can? :manage, dealership %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <!-- BEGIN BORDERED TABLE PORTLET-->
+  <div class="portlet light portlet-fit ">
+      <div class="portlet-body" style="padding-top: 15px;">
+          <div class="table-scrollable table-scrollable-borderless" style="overflow: visible !imporant;">
+              <table class="table table-striped table-bordered table-hover table-checkable order-column" id="dealerships_table">
+                  <thead>
+                      <tr class="uppercase" >
+                          <th style=" color: #455A64"> # </th>
+                          <th style=" color: #455A64"> Logo </th>
+                          <th style=" color: #455A64"> Name </th>
+                          <th style=" color: #455A64"> Actions </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <% @dealerships.each_with_index  do | dealership, index| %>
+                      <tr>
+                          <td><%=  index+1 %></td>
+                          <td><%= image_tag dealership.logo.url(:thumb) %></td>
+                          <td><%= dealership.name %></td>
+                          <td>
+                            <div class="actions" style="text-align:center">
+                              <div class="btn-group">
+                                  <a class="btn dark btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="text-decoration: none;"> Actions
+                                      <i class="fa fa-angle-down"></i>
+                                  </a>
+                                  <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <%= link_to 'Edit', edit_dealership_path(dealership), :class=>"btn btn-outline-warning btn-sm" if can? :update, dealership %>
+                                        <%= link_to 'Remove', dealership, :class=>"btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } if can? :manage, dealership %>
+                                    </li>
+                                  </ul>
+                              </div>
+                          </div>
+                         </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+              </table>
+          </div>
+      </div>
   </div>
-
+  <!-- END BORDERED TABLE PORTLET-->
 </div>
-
-
-
-<!-- <script>
-jQuery(document).ready(function($) {
-    $('.table > tbody > tr').click(function() {
-        window.document.location = $(this).data("href");
-    });
-});
-</script> -->

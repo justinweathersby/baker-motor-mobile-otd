@@ -44,6 +44,10 @@ Rails.application.routes.draw do
   resources :service_reps, :controller => 'service_reps'
   # devise_for :users
 
+  put 'moderators/:id/edit', to: 'moderators#update'
+  put 'sales_reps/:id/edit', to: 'sales_reps#update'
+  put 'service_reps/:id/edit', to: 'service_reps#update'
+
   resources :dealerships
   resources :push_notifications
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

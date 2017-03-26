@@ -3,6 +3,7 @@ class ModeratorsController < ApplicationController
   authorize_resource :class => false
 
   def new
+    @user = User.new
   end
 
   def create
@@ -22,19 +23,23 @@ class ModeratorsController < ApplicationController
   end
 
   def edit
-      @user = User.find(params[:id])
+      @moderator = User.find(params[:id])
   end
   # def show
   #   @user = current_user
   # end
 
   def update
-  	@user = current_user
-  	if @user.update_attributes(update_params)
-  		render :update, status: :ok, formats: [:json]
-      # redirect_to root_url, notice: 'Moderator was successfully created.'
-  	else
-  		format.html { render :edit }
+  	@moderator = User.find(params[:id])
+    respond_to do |format|
+    	if @moderator.update_attributes(update_params)
+        format.html do
+          redirect_to root_url, notice: 'Moderator was successfully edited'
+        end
+    	else
+        format.html { render :edit}
+        flash[:notice] = @moderator.errors
+      end
   	end
   end
 
@@ -56,6 +61,6 @@ class ModeratorsController < ApplicationController
   end
 
   def update_params
-    params.permit(:name, :email, :password, :password_confirmation, :dealership_id, :image)
+    params[:user].permit(:name, :email, :password, :password_confirmation, :dealership_id, :image)
   end
 end

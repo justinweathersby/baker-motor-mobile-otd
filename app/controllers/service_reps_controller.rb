@@ -3,6 +3,7 @@ class ServiceRepsController < ApplicationController
   # authorize_resource :class => false
 
   def new
+    @user = User.new
   end
 
   def create
@@ -22,17 +23,20 @@ class ServiceRepsController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @rep = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    authorize @user
-    if @user.update(user_params)
-      redirect_to root_url, notice: 'Sales Representative updated successfully.'
-    else
-      flash[:error] = 'Sales Rep account not updated; please fix errors and try again'
-      render :edit
+    @rep = User.find(params[:id])
+    respond_to do |format|
+      if @rep.update_attributes(update_params)
+        format.html do
+          redirect_to root_url, notice: 'Service Representative was successfully edited'
+        end
+      else
+        format.html { render :edit}
+        flash[:notice] = @rep.errors
+      end
     end
   end
 
@@ -44,6 +48,6 @@ class ServiceRepsController < ApplicationController
   end
 
   def update_params
-    params.permit(:name, :email, :password, :password_confirmation, :dealership_id, :image)
+    params[:user].permit(:name, :email, :password, :password_confirmation, :dealership_id, :image)
   end
 end
