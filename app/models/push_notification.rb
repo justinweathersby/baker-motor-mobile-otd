@@ -18,13 +18,18 @@ private
       "tokens" => self.tokens,
       "profile" => ENV['IONIC_PUSH_ENV'],
       "notification":{
+        "payload": {
+          "user_message": "0"
+        },
         "message": self.message,
         "android":{
-          "title": "Baker Motor Company"
+          "title": "Baker Motor Company",
+          "sound": "true"
         },
-         "ios": {
-              "title": "Baker Motor Company"
-            }
+        "ios": {
+          "title": "Baker Motor Company",
+          "sound": "true"
+        }
       }
     }
 

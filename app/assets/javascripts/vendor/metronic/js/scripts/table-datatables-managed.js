@@ -206,7 +206,8 @@ var TableDatatablesManaged = function () {
                 "className": "dt-right"
             },
             { "width": "60%", "targets": 0 },
-            { "width": "30%", "targets": 1 }
+            { "width": "30%", "targets": 1 },
+            { "width": "10%", "targets": 2}
         ],
         "order": [
             [1, "asc"]

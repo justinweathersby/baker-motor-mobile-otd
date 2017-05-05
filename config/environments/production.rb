@@ -24,7 +24,7 @@ Rails.application.configure do
   config.cache_classes = true #allowing caching assets
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'otd-baker-motor-mobile.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'bakermotorcompany.onetouchdealer.com' }
   ActionMailer::Base.smtp_settings = {
     :address        => ENV['EMAIL_ADDRESS'],
     :port           => '587',
