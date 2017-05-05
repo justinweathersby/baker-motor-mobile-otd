@@ -21,6 +21,8 @@ module BakerMotorMobileOtd
       end if File.exists?(env_file)
     end
 
+    config.time_zone = 'Eastern Time (US & Canada)'
+    
     # Enable the asset pipeline
     config.assets.enabled = true
     # Version of your assets, change this if you want to expire all your assets
