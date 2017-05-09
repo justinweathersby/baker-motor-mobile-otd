@@ -34,11 +34,11 @@ class Message < ActiveRecord::Base
          "tokens" => token,
          "profile" => ENV['IONIC_PUSH_ENV'],
          "notification":{
-           "message": message_text,
            "payload": {
              "user_message": "1",
              "conversation_id": conversation.id
            },
+           "message": message_text,
            "android":{
              "title": "One Touch Dealer",
              "badge": "1"
